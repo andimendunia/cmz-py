@@ -28,11 +28,11 @@ class frMain ( wx.Frame ):
 
 		bSizer1.Add( self.m_staticText1, 0, wx.ALL, 5 )
 
-		self.m_button1 = wx.Button( self, wx.ID_ANY, u"Konversi DXF ke CMZ", wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer1.Add( self.m_button1, 1, wx.ALL|wx.EXPAND, 5 )
+		self.btnConvert = wx.Button( self, wx.ID_ANY, u"Konversi DXF ke CMZ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer1.Add( self.btnConvert, 1, wx.ALL|wx.EXPAND, 5 )
 
-		self.m_button2 = wx.Button( self, wx.ID_ANY, u"Edit file CMZ", wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer1.Add( self.m_button2, 1, wx.ALL|wx.EXPAND, 5 )
+		self.btnEdit = wx.Button( self, wx.ID_ANY, u"Edit file CMZ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer1.Add( self.btnEdit, 1, wx.ALL|wx.EXPAND, 5 )
 
 
 		self.SetSizer( bSizer1 )
@@ -40,7 +40,19 @@ class frMain ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.btnConvert.Bind( wx.EVT_BUTTON, self.btnConvertOnButtonClick )
+		self.btnEdit.Bind( wx.EVT_BUTTON, self.btnEditOnButtonClick )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, override them in your derived class
+	def btnConvertOnButtonClick( self, event ):
+		event.Skip()
+
+	def btnEditOnButtonClick( self, event ):
+		event.Skip()
 
 
